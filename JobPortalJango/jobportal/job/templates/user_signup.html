@@ -1,0 +1,98 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+<script>
+    function checkpass()
+    {
+        if(document.signup.pwd.value!=document.signup.cpwd.value)
+        {
+            alert('Password and Confirm Password should be same');
+            document.signup.cpwd.focus();
+            return false;
+        }
+        return true;
+    }
+</script>   
+
+<marquee style = "font-family:'Moontype Corsiva'; font-size:25px; color:darkcyan;background-color: black;font-weight:bold; margin-top:1%">
+    User Signup
+</marquee>   
+<hr>
+ 
+<form class="container mt-5" onsubmit="return checkpass();" method = "post" name='signup' enctype="multipart/form-data">
+    {% csrf_token %} 
+  <div class="form-row">
+    <div class="form-group col-md-6">
+         <label>First Name</label>
+        <input class="form-control" type="text" name="fname" id="first_name" placeholder="First Name" required>
+  </div>
+    <div class="form-group col-md-6">
+         <label>Last Name</label>
+        <input class="form-control" type="text" name="lname" id="last_name" placeholder="Last Name" required>
+  </div>
+</div> 
+  <div class="form-row">
+    <div class="form-group col-md-12">
+         <label>Contact</label>
+        <input class="form-control" type="text" name="contact" placeholder="Enter Contact Number" required>
+  </div>
+    <div class="form-group col-md-12">
+         <label>Email ID</label>
+        <input class="form-control" type="text" name="email"  placeholder="Enter Email Address" required>
+  </div>
+</div> 
+
+<div class="form-row">
+    <div class="form-group col-md-6">
+         <label>Password</label>
+        <input class="form-control" type="Password" name="pwd"  placeholder="Enter your Password" required>
+  </div>
+    <div class="form-group col-md-6">
+         <label>Confirm Password</label>
+        <input class="form-control" type="Password" name="cpwd"  placeholder="Confirm Password" required>
+  </div>
+</div> 
+<div class="form-row">
+    <div class="form-group col-md-6">
+         <label>Gender</label>
+         <div style="border:1px solid lightgrey; padding:5px; border-radius:6px">
+         <div class = "custom-control custom-radio custom-control-inline"> 
+        {% comment %} <input type="radio" name="gender" id="customRadioInline1" class="custom-control-input" value="Male">
+           <label class="custom-control-label" for customRadioInline1>Male</label>  {% endcomment %}
+           <input type="radio" name="gender" value="male"> Male
+
+    </div>
+        <div class = "custom-control custom-radio custom-control-inline"> 
+            <input type="radio" name="gender" value="female"> Female
+          {% comment %} <label class="custom-control-label" for customRadioInline2>Female</label>  {% endcomment %}
+   </div>
+</div>
+</div>
+   <div class="form-group col-md-6">
+    <label>Image</label>
+   <input class="form-control" type="file" name="image" required>
+</div>
+</div> 
+
+<input type="submit" value="submit" class="btn btn-primary my-3" style="width:200px">
+</form>
+{% include 'footer.html' %}
+
+{% if error == "no" %}
+    <script>
+        alert("Signup Successful")
+        window.location = ('{% url 'user_login' %}')
+    </script>
+{% endif %}
+
+{% if error == "yes" %}
+    <script>
+    alert("Something went wrong, Try again...")
+    </script>
+{% endif %}
+
+{% endblock %} 

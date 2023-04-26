@@ -1,0 +1,39 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+<marquee style = "font-family:'Moontype Corsiva'; font-size:25px; color:darkcyan;background-color: black;font-weight:bold; margin-top:1%">
+    User login
+</marquee>   
+<hr>
+
+<form class="container mt-5" method = "post">
+    {% csrf_token %} 
+    <label><b>Email id</b></label>
+    <input type = "text" class="form-control" name="uname" placeholder="Enter email id">
+    <label><b>Password</b></label>
+    <input type = "Password" class="form-control" name="pwd" placeholder="Enter Password">
+    <button type = "submit" class="btn btn-primary" style="margin-top:2%;color: darkcyan;background-color:black; height:40px">Login</button>
+
+    <a href = "{% url 'user_signup' %}" class="btn btn-primary"  style="margin-top:2%;color: darkcyan;background-color:black; height:40px">Create an Account</a> 
+
+</form>
+{% include 'footer.html' %}
+ 
+{% if error == "no" %}
+    <script>
+        alert("Signup Successful")
+        window.location = ('{% url 'user_login' %}')
+    </script>
+{% endif %}
+
+{% if error == "yes" %}
+    <script>
+    alert("Something went wrong, Try again...")
+    </script>
+{% endif %}
+
+{% endblock %} 

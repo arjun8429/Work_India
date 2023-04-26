@@ -1,0 +1,100 @@
+{% load static %}
+
+
+{% block body %}
+
+{% include 'navigation.html' %}
+
+<style>
+.container{
+    max-width:90%;
+}
+.content{
+  text-align : center;
+  position:absolute;
+  bottom:0;
+  background : rgba(0,0,0,0.5);
+  color: white;  
+  height:30px;
+  width:91%"
+}
+
+</style>    
+
+<div class="container-fluid" style="margin-top: 1% ">
+    <img src="{% static 'images/img1.png' %}" style = "height:450px;width:100%">
+ 
+</div>   
+
+<div class ="container" style = "background-color: black;margin-top:2%">
+    
+<h1 class ="text-center text-white">---------| OUR PLACED   | -----------</h1>
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <img src = "{% static 'images/img2.avif' %}" style="width=100%; margin-top:5%; height : 200px; border-radius:50%">
+           <div class ="content">
+            <p>Facebook</p>
+           </div>
+        </div>         
+
+        <div class="col-md-3">
+            <img src = "{% static 'images/img2.avif' %}" style="width=100%; margin-top:5%; height : 200px; border-radius:50%">
+           <div class ="content">
+            <p>Infosys</p>
+           </div>
+        </div> 
+
+
+        <div class="col-md-3">
+            <img src = "{% static 'images/img2.avif' %}" style="width=100%; margin-top:5%; height : 200px; border-radius:50%">
+           <div class ="content">
+            <p>Linkdin</p>
+           </div>
+        </div> 
+
+
+        <div class="col-md-3">
+            <img src = "{% static 'images/img2.avif' %}" style="width=100%; margin-top:5%; height : 200px; border-radius:50%">
+           <div class ="content">
+            <p>Deloitte</p>
+           </div>
+        </div> 
+
+
+</div>   
+    <div class="row mt-3">
+        <div class="col-md-3">
+            <img src = "{% static 'images/img2.avif' %}" style="width=100%; margin-top:5%; height : 200px; border-radius:50%">
+           <div class ="content">
+            <p>Facebook</p>
+           </div>
+        </div>         
+
+        <div class="col-md-3">
+            <img src = "{% static 'images/img2.avif' %}" style="width=100%; margin-top:5%; height : 200px; border-radius:50%">
+           <div class ="content">
+            <p>Infosys</p>
+           </div>
+        </div> 
+
+
+        <div class="col-md-3">
+            <img src = "{% static 'images/img2.avif' %}" style="width=100%; margin-top:5%; height : 200px; border-radius:50%">
+           <div class ="content">
+            <p>Linkdin</p>
+           </div>
+        </div> 
+
+
+        <div class="col-md-3">
+            <img src = "{% static 'images/img2.avif' %}" style="width=100%; margin-top:5%; height : 200px; border-radius:50%">
+           <div class ="content">
+            <p>Deloitte</p>
+           </div>
+        </div> 
+</div>   
+</div>
+
+{% include 'footer.html' %}
+
+{% endblock %} 
