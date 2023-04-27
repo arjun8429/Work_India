@@ -17,6 +17,27 @@
     <label><b>Password</b></label>
     <input type = "Password" class="form-control" name="pwd" placeholder="Enter Password">
     <button type = "submit" class="btn btn-primary" style="margin-top:2%:color: darkcyan;background-color:black; height:40px">submit</button>
+    <a href = "{% url 'recruiter_signup' %}" class="btn btn-primary"  style="margin-top:2%;color: darkcyan;background-color:black; height:40px">Create an Account</a> 
 
+</form>
+
+{% if error == "no" %}
+    <script>
+        alert("Login Successful")
+        window.location = ('{% url 'recruiter_home' %}')
+    </script>
+{% endif %}
+
+{% if error == "yes" %}
+    <script>
+    alert("Invalid login Credentials, Try again...")
+    </script>
+{% endif %}
+{% if error == "not" %}
+    <script>
+    alert("Your log in status is Pending...")
+    </script>
+{% endif %}
+ 
 
 {% endblock %} 

@@ -25,15 +25,17 @@
  
 {% if error == "no" %}
     <script>
-        alert("Signup Successful")
-        window.location = ('{% url 'user_login' %}')
+        alert("Login Successful")
+        window.location = ('{% url 'user_home' %}')
     </script>
 {% endif %}
 
 {% if error == "yes" %}
     <script>
-    alert("Something went wrong, Try again...")
+    alert("Invalid login Credentials, Try again...")
     </script>
 {% endif %}
+
+
 
 {% endblock %} 
